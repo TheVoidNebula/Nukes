@@ -38,7 +38,12 @@ namespace Nukes
         public void OnNuke()
         {
             if (omegaWarhead)
+            {
                 Map.Get.SendBroadcast(5, Plugin.Config.OmegaWarheadDeathMessage, true);
+                foreach (Player players in Server.Get.Players)
+                    players.Kill(DamageTypes.Nuke);
+            }
+                
         }
 
         public IEnumerator<float> AutoWarhead()
