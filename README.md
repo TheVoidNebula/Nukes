@@ -10,6 +10,7 @@ Adds a lot of options related to our Warhead
 * Decide if you want to have a Omega Warhead
 * Decide which doors should be closed and locked during a Alpha Warhead Detonation Progress
 * Decide if you want a extra Broadcast when the Alpha Warhead Detonation Progress starts
+* Should Players get damage after the Warhead detonation on the surface?
 
 ## Installation
 1. [Install Synapse](https://github.com/SynapseSL/Synapse/wiki#hosting-guides)
