@@ -83,6 +83,13 @@ Name  | Type | Default | Description
 `Doors` | List | HCZ_049_Armory, HCZ_Armory,DoorType.LCZ_173_Armory, LCZ_Armory, Nuke_Armory | Which doors should be closed and locked during the alpha warhead procedure?
 `EnableLockdownMessage` | Boolean | true | Should a Broadcast be shown when the Alpha Warhead starts?
 `DoorLockdownMessage` | String | '[Nukes] Several Doors will be locked down during the Warhead Detonation...' | What should the Message be when the Alpha Warhead starts?
+`EnableSurfaceTension` | Boolean | true | Should players receive damage on the surface after the detonation of the Alpha Warhead?"
+`EnableSurfaceTensionMessage` | Boolean | true | Should there be a broadcast when the players start getting damaged by the surface tension?
+`SurfaceTensionMessage` | String | '[Nukes] <color=red>The radiation from the Detonation is starting to damage you...</color>' | What should the Message be when the Alpha Warhead starts?
+`SurfaceTensionDamage` | Int | 1 | The damage players get in the Surface Tension per Intervall?
+`SurfaceTensionIntervall` | Int | 1f | The intervall (in seconds) in which players get damage over time?
+`EnableSurfaceTensionDelay` | Boolean | true | Should there be a delay before players get damaged?
+`SurfaceTensionDelay` | Float | 30f | Time (in seconds) to wait after the nuke is detonated before damaging players
 
 ## Config.syml
 ```yml
