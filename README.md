@@ -1,7 +1,9 @@
 # Nukes
-Adds the Omega Warhead and a Auto Warhead!
+Adds a lot of options related to our Warhead
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)
+
+![preview](https://user-images.githubusercontent.com/75329526/127044047-79b99e5c-0b95-465b-9b11-ca44ea4b8ed1.gif)
 
 ## Features
 * Decide if you want to have a automatic Alpha Warhead
@@ -79,7 +81,6 @@ Name  | Type | Default | Description
 `CustomEndConditions` | List | Anomalies | Which Team needs to win for the Warhead Explosion on the round end?
 `EnableLockdownSystem` | Boolean | true | Should several doors be locked when the alpha warhead starts?
 `Doors` | List | HCZ_049_Armory, HCZ_Armory,DoorType.LCZ_173_Armory, LCZ_Armory, Nuke_Armory | Which doors should be closed and locked during the alpha warhead procedure?
-
 `EnableLockdownMessage` | Boolean | true | Should a Broadcast be shown when the Alpha Warhead starts?
 `DoorLockdownMessage` | String | '[Nukes] Several Doors will be locked down during the Warhead Detonation...' | What should the Message be when the Alpha Warhead starts?
 
