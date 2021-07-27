@@ -15,7 +15,7 @@ namespace Nukes
         SynapseMajor = 2,
         SynapseMinor = 6,
         SynapsePatch = 0,
-        Version = "1.1"
+        Version = "1.2"
         )]
     public class Plugin : AbstractPlugin
     {
@@ -24,6 +24,7 @@ namespace Nukes
         public override void Load()
         {
             SynapseController.Server.Logger.Info("Nukes loaded!");
+            new EventHandlers();
         }
 
         public override void ReloadConfigs()
