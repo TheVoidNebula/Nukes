@@ -51,7 +51,7 @@ namespace Nukes
         {
             if (omegaWarhead)
             {
-                Map.Get.SendBroadcast(5, Plugin.Config.OmegaWarheadDeathMessage, true);
+                Map.Get.SendBroadcast(5, Plugin.PluginTranslation.ActiveTranslation.OmegaWarheadAnnouncement, true);
                 foreach (Player players in Server.Get.Players)
                     players.Kill(DamageTypes.Nuke);
             }
@@ -75,9 +75,9 @@ namespace Nukes
 
         public IEnumerator<float> AutoWarhead()
         {
-            Map.Get.SendBroadcast(5, Plugin.Config.AutoWarheadRoundBeginningAnnouncement);
+            Map.Get.SendBroadcast(5, Plugin.PluginTranslation.ActiveTranslation.AutoWarheadRoundBeginningAnnouncement.Replace("%time%", (Plugin.Config.AutoWarheadTime/60).ToString()));
             yield return Timing.WaitForSeconds(Plugin.Config.AutoWarheadTime);
-            Map.Get.SendBroadcast(5, Plugin.Config.AutoWarheadAnnouncement);
+            Map.Get.SendBroadcast(5, Plugin.PluginTranslation.ActiveTranslation.AutoWarheadAnnouncement);
             if (Plugin.Config.EnableAutoWarheadLock)
                 Nuke.Get.InsidePanel.Locked = true;
             Nuke.Get.StartDetonation();
@@ -85,7 +85,7 @@ namespace Nukes
 
         public IEnumerator<float> OmegaWarhead()
         {
-            Map.Get.SendBroadcast(5, Plugin.Config.OmegaWarheadRoundBeginningAnnouncement);
+            Map.Get.SendBroadcast(5, Plugin.PluginTranslation.ActiveTranslation.OmegaWarheadRoundBeginningAnnouncement.Replace("%time%", (Plugin.Config.OmegaWarheadTime / 60).ToString()));
             yield return Timing.WaitForSeconds(Plugin.Config.OmegaWarheadTime);
             Map.Get.SendBroadcast(5, Plugin.Config.OmegaWarheadAnnouncement);
             if (Plugin.Config.EnableOmegaWarheadLock)
@@ -105,9 +105,9 @@ namespace Nukes
                         yield return Timing.WaitForSeconds(12);
 
                         if (Plugin.Config.EnableLockdownMessage)
-                            Map.Get.SendBroadcast(5, Plugin.Config.DoorLockdownMessage, true);
+                            Map.Get.SendBroadcast(5, Plugin.PluginTranslation.ActiveTranslation.DoorLockdownMessage, true);
 
-                        foreach (Synapse.Api.Door doors in Map.Get.Doors)
+                        foreach (Door doors in Map.Get.Doors)
                         {
                             if (Plugin.Config.Doors.Contains(doors.DoorType))
                             {
@@ -120,7 +120,7 @@ namespace Nukes
                 }
                 else if (!AlphaWarheadController.Host.inProgress && IsLocked)
                 {
-                    foreach (Synapse.Api.Door doors in Map.Get.Doors)
+                    foreach (Door doors in Map.Get.Doors)
                     {
                         if (Plugin.Config.Doors.Contains(doors.DoorType))
                         {
@@ -137,7 +137,7 @@ namespace Nukes
         public IEnumerator<float> SurfaceTension()
         {
             if (Plugin.Config.EnableSurfaceTensionMessage)
-                Map.Get.SendBroadcast(5, Plugin.Config.SurfaceTensionMessage, true);
+                Map.Get.SendBroadcast(5, Plugin.PluginTranslation.ActiveTranslation.SurfaceTensionMessage, true);
             while (true)
             {
                 foreach (Player players in Server.Get.Players)
