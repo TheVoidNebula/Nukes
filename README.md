@@ -5,6 +5,8 @@ Adds a lot of options related to our Warhead
 
 ![preview](https://user-images.githubusercontent.com/75329526/127044047-79b99e5c-0b95-465b-9b11-ca44ea4b8ed1.gif)
 
+![NukeLights](https://user-images.githubusercontent.com/75329526/131705767-b53211fa-d58a-4eed-9b04-9a5f2e436ea5.png)
+
 ## Features
 * Aautomatic Alpha Warhead
 * Omega Warhead
