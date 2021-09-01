@@ -80,5 +80,35 @@ namespace Nukes
 
         [Description("Time (in seconds) to wait after the nuke is detonated before damaging players")]
         public float SurfaceTensionDelay { get; set; } = 30f;
+
+        [Description("Should the Nuke Lights have a custom color?")]
+        public bool EnableNukeLightsCustomColor { get; set; } = true;
+
+        [Description("The RGB colorcode for the Nuke Lights?")]
+        public NukeLightColor NukeLightColor = new NukeLightColor()
+        {
+            //#5d04b0
+            Red = 93,
+            Green = 4,
+            Blue = 176
+        };
+
+        [Description("Should the Nuke Lights have a custom color after the Detonation?")]
+        public bool EnableNukeLightsCustomColorAfterDetonation { get; set; } = true;
+
+        [Description("The RGB colorcode for the Nuke Lights after the Detonation?")]
+        public NukeLightColor NukeLightDetonationColor = new NukeLightColor()
+        {
+            //#FF0000
+            Red = 255,
+            Green = 0,
+            Blue = 0
+        };
+
+        [Description("Should the Lights be disabled after the Detonation?")]
+        public bool EnableNoLightsAfterDetonation { get; set; } = false;
+
+        [Description("Should the Lights be disabled after the Detonation?")]
+        public float NoLightsAfterDetonationDuration { get; set; } = 60f;
     }
 }

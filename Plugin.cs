@@ -16,7 +16,7 @@ namespace Nukes
         SynapseMajor = 2,
         SynapseMinor = 6,
         SynapsePatch = 0,
-        Version = "1.3"
+        Version = "1.4"
         )]
     public class Plugin : AbstractPlugin
     {

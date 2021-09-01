@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Nukes
 {
@@ -32,10 +33,15 @@ namespace Nukes
 
             if (Plugin.Config.IsEnabled && Plugin.Config.EnableLockdownSystem)
                 Coroutines.Add(Timing.RunCoroutine(CloseDoors()));
+
+            if (Plugin.Config.IsEnabled)
+                Coroutines.Add(Timing.RunCoroutine(NukeLights()));
+
         }
 
         public void OnRoundEnd(RoundCheckEventArgs ev)
         {
+            Timing.KillCoroutines();
             Coroutines.Clear();
             omegaWarhead = false;
             IsLocked = false;
@@ -143,6 +149,37 @@ namespace Nukes
                 foreach (Player players in Server.Get.Players)
                     players.Hurt(Plugin.Config.SurfaceTensionDamage, DamageTypes.Nuke);
                 yield return Timing.WaitForSeconds(Plugin.Config.SurfaceTensionIntervall);
+            }
+        }
+
+        public IEnumerator<float> NukeLights()
+        {
+            while (true)
+            {
+                if (!Round.Get.RoundEnded && AlphaWarheadController.Host.isActiveAndEnabled && Plugin.Config.EnableNukeLightsCustomColor)
+                {
+                        foreach (FlickerableLightController lightController in FlickerableLightController.Instances)
+                        {
+                            lightController.WarheadLightOverride = false;
+                            lightController.WarheadLightColor = new Color(Plugin.Config.NukeLightColor.Red / 255f, Plugin.Config.NukeLightColor.Green / 255f, Plugin.Config.NukeLightColor.Blue / 255f);
+                        }
+                }
+
+                if (!Round.Get.RoundEnded && AlphaWarheadController.Host.detonated && Plugin.Config.EnableNoLightsAfterDetonation)
+                {
+                    foreach (var rooms in Map.Get.Rooms)
+                        rooms.LightsOut(Plugin.Config.NoLightsAfterDetonationDuration);
+                }
+
+                if (!Round.Get.RoundEnded && AlphaWarheadController.Host.detonated && Plugin.Config.EnableNukeLightsCustomColorAfterDetonation)
+                {
+                    foreach (FlickerableLightController lightController in FlickerableLightController.Instances)
+                    {
+                        lightController.WarheadLightOverride = false;
+                        lightController.WarheadLightColor = new Color(Plugin.Config.NukeLightDetonationColor.Red / 255f, Plugin.Config.NukeLightDetonationColor.Green / 255f, Plugin.Config.NukeLightDetonationColor.Blue / 255f);
+                    }
+                }
+                yield return Timing.WaitForSeconds(1f);
             }
         }
 
