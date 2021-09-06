@@ -87,11 +87,27 @@ Name  | Type | Default | Description
 `SurfaceTensionIntervall` | Int | 1f | The intervall (in seconds) in which players get damage over time?
 `EnableSurfaceTensionDelay` | Boolean | true | Should there be a delay before players get damaged?
 `SurfaceTensionDelay` | Float | 30f | Time (in seconds) to wait after the nuke is detonated before damaging players
+`EnableNukeLightsCustomColor` | Boolean | true | Should the Nuke Lights have a custom color?
+`NukeLightColor` | NukeLightColor | Red = 93, Green = 4,Blue = 176 | The RGB colorcode for the Nuke Lights?
+`EnableNukeLightsCustomColorAfterDetonation` | Boolean | true | Should the Nuke Lights have a custom color after the Detonation?
+`NukeLightDetonationColor` | NukeLightColor | Red = 255, Green = 0,Blue = 0 | The RGB colorcode for the Nuke Lights after the Detonation?
+`EnableNoLightsAfterDetonation` | Boolean | false |Should the Lights be disabled after the Detonation?
+`NoLightsAfterDetonationDuration` | Float | 60f | Should the Lights be disabled after the Detonation?
 
 ## Config.syml
 ```yml
 [Nukes]
 {
+# The RGB colorcode for the Nuke Lights?
+nukeLightColor:
+  red: 255
+  green: 165
+  blue: 0
+# The RGB colorcode for the Nuke Lights after the Detonation?
+nukeLightDetonationColor:
+  red: 255
+  green: 165
+  blue: 0
 # Is this Plugin enabled?
 isEnabled: true
 # Should the automatic Alpha Warhead be enabled?
@@ -106,6 +122,11 @@ enableOmegaWarhead: true
 enableOmegaWarheadLock: true
 # The time in seconds in which the Omega Warhead starts
 omegaWarheadTime: 1800
+# What should the Announcement be when the Omega Warhead starts?
+omegaWarheadAnnouncement: >-
+  ::lcb::Nukes::rcb:: The Omega Alpha Warhead has started!
+
+  We are all doomed!
 # Should the Warhead explode after the round has ended?
 enableRoundEndWarhead: true
 # How long after the round end should the warhead detonate?
@@ -132,11 +153,19 @@ enableSurfaceTension: true
 enableSurfaceTensionMessage: true
 # The damage players get in the Surface Tension per Intervall?
 surfaceTensionDamage: 1
-# The damage players get in the Surface Tension per Intervall?
+# The intervall (in seconds) in which players get damage over time?
 surfaceTensionIntervall: 1
 # Should there be a delay before players get damaged?
 enableSurfaceTensionDelay: true
 # Time (in seconds) to wait after the nuke is detonated before damaging players
 surfaceTensionDelay: 30
+# Should the Nuke Lights have a custom color?
+enableNukeLightsCustomColor: true
+# Should the Nuke Lights have a custom color after the Detonation?
+enableNukeLightsCustomColorAfterDetonation: true
+# Should the Lights be disabled after the Detonation?
+enableNoLightsAfterDetonation: false
+# Should the Lights be disabled after the Detonation?
+noLightsAfterDetonationDuration: 60
 }
 ```
