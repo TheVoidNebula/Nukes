@@ -41,7 +41,9 @@ namespace Nukes
 
         public void OnRoundEnd(RoundCheckEventArgs ev)
         {
-            Timing.KillCoroutines();
+            foreach(CoroutineHandle coroutines in Coroutines)
+                Timing.KillCoroutines(coroutines);
+
             Coroutines.Clear();
             omegaWarhead = false;
             IsLocked = false;
