@@ -8,7 +8,7 @@ Adds a lot of options related to our Warhead
 ![NukeLights](https://user-images.githubusercontent.com/75329526/131705767-b53211fa-d58a-4eed-9b04-9a5f2e436ea5.png)
 
 ## Features
-* Aautomatic Alpha Warhead
+* Automatic Alpha Warhead
 * Omega Warhead
 * Decide which doors should be closed and locked during a Alpha Warhead Detonation Progress
 * Decide if you want a extra Broadcast when the Alpha Warhead Detonation Progress starts
